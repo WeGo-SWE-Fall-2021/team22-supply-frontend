@@ -47,7 +47,7 @@
            -webkit-border-radius: 20px 20px 20px 20px;
            border-radius: 20px 20px 20px 20px;
            background: beige;
-           height: 375px;
+           height: 310px;
            width: 90%;
            max-width: 450px;
            position: relative;
@@ -81,61 +81,34 @@
 
 <div class="wrapper fadeInDown">
             <div id="formContent">
-                <form id="login">
+
                       <h1>
         <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
-        Welcome Fleet Manager
+        Fleet Manager Home Page
     </h1>
-                    Username:
-                    <input type="text" id="username"><br>
-                    Password:
-                    <input type="password" id="password"><br><br>
 
-                </form>
 
-                <button type="submit" onclick="logIn()" class = "btn">
+
+
+<form action="https://supply.team22.sweispring21.tk/common-services-frontend/login.html">
+                <button type="submit"  class = "btn">
                 <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
             Login
-                 </button>
+                </button></form>
 <br>
 
 
-
-                <a href = "./register.html" class="link">
-            <link rel="preconnect" href="https://fonts.gstatic.com">
+  <form action="https://supply.team22.sweispring21.tk/common-services-frontend/register.html">
+       <button type="submit"  class = "btn">
+                <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
-           Register Here
-                </a>
+            Register
+       </button></form>
             </div>
     </div>
 
-    <script>
-        function logIn()
-        {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-						let data = {'username': username,
-							'password': password};
-
-            fetch('https://supply.team22.sweispring21.tk/api/v1/index', {
-                method:"POST",
-								headers: {
-									'Content-Type': 'application/json'
-								},
-                body: JSON.stringify(data)
-							})
-							.then(function(response) {
-								console.log(response.status);
-								if (response.status == 201)
-								{
-									window.location.assign("./dashboard.html");
-								}
-							});
-        }
-    </script>
 
     </body>
 </html>
