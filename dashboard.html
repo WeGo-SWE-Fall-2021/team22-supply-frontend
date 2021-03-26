@@ -8,24 +8,9 @@
 
 </body>
 <script>
-    fetch(`https://supply.team22.sweispring21.tk/api/v1/returnVehicle`, {
-		method:"GET",
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(data)
-	}).then(response => {
-		if (response.ok) {
-			return response.json();
-		}
-		return Promise.reject(response)
-	}).then(data => {
-		console.log(data);
-	}).catch(error => {
-		console.warn('Something went wrong.', error);
-
-	});
-
+    fetch('https://supply.team22.sweispring21.tk/api/v1/returnVehicle')
+  .then(response => response.json())
+  .then(data => console.log(data));
 
 </script>
 
