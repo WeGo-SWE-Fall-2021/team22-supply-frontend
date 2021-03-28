@@ -77,27 +77,25 @@ for Bootstrap table -->
 
 <script>
 fetch('https://supply.team22.sweispring21.tk/api/v1/supply/returnVehicle')
-  .then(
-    function(response) {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
-      // Examine the text in the response
-      response.json().then(function(data) {
+  .then((response) => 
+       response.json()
+    
+      .then((data) => {
         console.log(data);
-        $(document).ready(function () {
-        var mydata = JSON.parse(data)
-        $('table').bootstrapTable({
-            data: mydata
-        });
-      });
+        var mydata = JSON.parse(data);
+        console.log(mydata)
+
+        // $(document).ready(function () {
+        //     $('table').bootstrapTable({
+        //         data: mydata
+        //     });
+        // });
+
     })
-})
   .catch(function(err) {
     console.log('Fetch Error :-S', err);
-  });
+  })
+
 </script>
 </body>
 </html>
