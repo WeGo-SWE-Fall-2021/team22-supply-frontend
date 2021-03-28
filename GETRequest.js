@@ -4,8 +4,9 @@ fetch('https://supply.team22.sweispring21.tk/api/v1/supply/returnVehicle')
         return response.json()
     })
         .then((responsedata) => {
-                console.log(JSON.stringify(responsedata));
-                console.log(typeof(responsedata))
-                return responsedata
+            JSON.stringify(responsedata)
+            console.log(responsedata);
+            console.log(typeof(responsedata))
+            return responsedata
             })
         .catch(err => { throw err });
