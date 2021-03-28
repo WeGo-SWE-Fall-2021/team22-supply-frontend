@@ -84,36 +84,20 @@ fetch('https://supply.team22.sweispring21.tk/api/v1/supply/returnVehicle')
           response.status);
         return;
       }
-
       // Examine the text in the response
       response.json().then(function(data) {
         console.log(data);
+        $(document).ready(function () {
+        var mydata = JSON.parse(data)
+        $('table').bootstrapTable({
+            data: mydata
+        });
       });
-    }
-  )
+    })
+})
   .catch(function(err) {
     console.log('Fetch Error :-S', err);
   });
-
-
-    console.log("this is html log:", data)</script>
-<!-- 
-<script type="text/javascript">
-    $(document).ready(function () {
-  
-      // Use the given data to create 
-      // the table and display it
-      $('table').bootstrapTable({
-        data: mydata
-      });
-    });
-  
-    // Parse the imported data as JSON
-    // and store it
-    var mydata = JSON.parse(responsedata)
-    
-  </script>  -->
-
-
+</script>
 </body>
 </html>
