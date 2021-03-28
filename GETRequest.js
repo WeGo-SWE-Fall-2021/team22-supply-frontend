@@ -5,5 +5,6 @@ fetch('https://supply.team22.sweispring21.tk/api/v1/supply/returnVehicle')
     })
         .then((responsedata) => {
                 console.log(JSON.stringify(responsedata));
+                return responsedata
             })
         .catch(err => { throw err });
