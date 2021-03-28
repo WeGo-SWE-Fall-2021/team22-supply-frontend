@@ -3,9 +3,7 @@ fetch('https://supply.team22.sweispring21.tk/api/v1/supply/returnVehicle')
         console.log(response);
         return response.json()
     })
-        .then((data) => {
-                console.log(JSON.stringify(data));
+        .then((responsedata) => {
+                console.log(JSON.stringify(responsedata));
             })
         .catch(err => { throw err });
-
-    var jsondata = data
