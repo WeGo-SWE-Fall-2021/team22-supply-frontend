@@ -87,11 +87,11 @@ fetch('https://supply.team22.sweispring21.tk/api/v1/supply/returnVehicle')
             //var mydata = JSON.parse(data)
             console.log(typeof(mydata));
 
-            // $(document).ready(function () {
-            //     $('table').bootstrapTable({
-            //     data: mydata
-            //     });
-            //  });
+            $(document).ready(function () {
+                $('table').bootstrapTable({
+                data: mydata
+                });
+             });
         })
         .catch(err => { throw err });
 
