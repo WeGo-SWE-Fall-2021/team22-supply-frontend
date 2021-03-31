@@ -9,7 +9,7 @@ $(() => {
             // Success in fetching data now update dashboard with the new data
         } else {
             // Was not able to fetch user
-            window.location.replace(cloudURL)
+            window.location.replace(cloudURL + "/login.html")
         }
     })
 
