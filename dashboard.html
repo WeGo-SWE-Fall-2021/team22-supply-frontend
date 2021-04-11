@@ -27,12 +27,14 @@
 		<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 
 		<!-- Include the Bootstrap Table CSS
-		for the table -->
+		for the table
 		<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
-
+		 -->
 
 	</head>
 	<body>
+
+		
 		<div class="container">
 			<div>
 				<h1 class="text text-success text-center ">
@@ -40,6 +42,20 @@
 				</h1>
 				<button id="logoutButton">Log out</button>
 			</div>
+		<div class = "addVehicle">
+			Vehicle Type 
+			<input type="text" id="vType"><br>
+			Status <br>
+			<input type="radio" id="ready" name="status" value="ready" checked="checked">
+			<label for="ready">ready</label><br>
+			<input type="radio" id="oos" name="status" value="out of service">
+			<label for="oos">out of service</label><br>
+			<button id="orderButton">add vehicle</button>
+				</div>
+		<div class = "addFleet">
+				</div>
+
+			<!-- broken table 
 			<h6 class="text text-success text-center">
 				All Vehicles
 			</h6>
@@ -65,5 +81,6 @@
 				</thead>
 			</table>
 		</div>
+		-->
 	</body>
 </html>
