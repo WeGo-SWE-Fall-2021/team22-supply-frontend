@@ -43,17 +43,34 @@
 				<button id="logoutButton">Log out</button>
 			</div>
 		<div class = "addVehicle">
+			<br>
+			<h2>Add a Vehicle</h2>
+
 			Vehicle Type 
 			<input type="text" id="vType"><br>
+
 			Status <br>
 			<input type="radio" id="ready" name="status" value="ready" checked="checked">
 			<label for="ready">ready</label><br>
-			<input type="radio" id="oos" name="status" value="out of service">
+			<input type="radio" id="oos" name="status" value="oos">
 			<label for="oos">out of service</label><br>
-			<button id="orderButton">add vehicle</button>
-				</div>
+			<button id="addVehicleButton">add vehicle</button>
+		</div>
 		<div class = "addFleet">
-				</div>
+			<br>
+			<h3>Add a Fleet</h3>
+			Vehicle Type 
+			<input type="text" id="fleetVType"><br>
+			PlugIns
+ 			<input type = "text" id="pluginIds">
+			<br>
+			(seperate by comma if fleet supports multiple plugins)
+			<br>
+			total Vehicles = 0 
+			<br>
+			<button id="addFleetButton">add fleet</button>
+
+		</div>
 
 			<!-- broken table 
 			<h6 class="text text-success text-center">
