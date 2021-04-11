@@ -62,7 +62,7 @@ $(() => {
             }).then(data => {
                 console.log(data)
             }).catch(error => {
-                throw err 
+                throw error
 
             })
         });
@@ -95,7 +95,7 @@ $(() => {
                 }).then(data => {
                     console.log(data)
                 }).catch(error => {
-                    throw err 
+                     throw error 
     
                 })
             });
