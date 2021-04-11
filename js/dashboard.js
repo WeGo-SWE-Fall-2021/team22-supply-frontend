@@ -36,7 +36,7 @@ $(() => {
         })
     });
 
-    $("#orderButton").click(() => {
+    $("#addVehicleButton").click(() => {
         let vType = $("#vType").val();      
         let status = $('input[name="status"]:checked').val();
         let dock = ''
@@ -65,8 +65,41 @@ $(() => {
                 throw err 
 
             })
-        })
-    })
+        });
+
+        $("#addFleetButton").click(() => {
+            let vType = $("#fleetVType").val();      
+            let plugInIds = $("#pluginIds").val().split(/\s*,\s*/);
+            let totalVehicles = 0
+
+            let dock = ''
+        
+            let data = {
+                'cloud': cloud,
+                'totalVehicles' : totalVehicles,
+                'pluginIds': plugInIds,
+                'vType' : vType
+            };
+        
+                fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/supply/fleet`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    return Promise.reject(response)
+                }).then(data => {
+                    console.log(data)
+                }).catch(error => {
+                    throw err 
+    
+                })
+            });
+    });
     
 
     // Get vehicles from database
@@ -87,5 +120,3 @@ $(() => {
     // }).catch(err => {
     //     throw err
     // });
-
-});
