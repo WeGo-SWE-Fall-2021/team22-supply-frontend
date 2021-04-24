@@ -2,13 +2,15 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport"
+		<!-- <meta name="viewport"
 			  content="width=device-width,
 				initial-scale=1,
-				shrink-to-fit=no">
+				shrink-to-fit=no"> -->
 		<title>
 			Fleet Manager Dashboard
 		</title>
+
+		<link rel="stylesheet" href="css/main.css">
 
 		<!-- Remote js scripts -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -26,15 +28,19 @@
 				crossorigin="anonymous"></script>
 		<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 
-		<!-- Include the Bootstrap Table CSS
-		for the table
-		<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
-		 -->
+		
 
 	</head>
 	<body>
-
+		<div class="sidenav">
+			<a href="dashboard.html">Main</a>
+			<a href="#profile">Profile</a>
+			<a href="tables.html">Fleet Tables</a>
+			<a href="#addVehFleet">Add New Fleet or Vehicle</a>
+			<a href="#maps">Maps</a>
+		  </div>
 		
+		<div class = "main">
 		<div class="container">
 			<div>
 				<h1 class="text text-success text-center ">
@@ -71,33 +77,9 @@
 			<button id="addFleetButton">add fleet</button>
 
 		</div>
+	</div>
+</div>
 
-			<!-- broken table 
-			<h6 class="text text-success text-center">
-				All Vehicles
-			</h6>
-			<table class="table-striped border-success">
-				<thead>
-				<tr>
-					<th data-field="vehicleID">
-			<span class="text-success">
-				Vehicle ID
-			</span>
-					</th>
-					<th data-field="status">
-			<span class="text-success">
-				Status
-			</span>
-					</th>
-					<th data-field="FleetID">
-			<span class="text-success">
-				Fleet ID
-			</span>
-					</th>
-				</tr>
-				</thead>
-			</table>
-		</div>
-		-->
+			
 	</body>
 </html>
