@@ -53,6 +53,7 @@ $(() => {
     })
     
   });
+$(document).ready(function() {
 
   $("table tr").click(function() {
     $(this).addClass('selected').siblings().removeClass('selected');
@@ -70,7 +71,7 @@ $(() => {
 //            console.log(mydata)
 //      });
   });
-
+});
   
   mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
   
