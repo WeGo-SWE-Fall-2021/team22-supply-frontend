@@ -1,6 +1,7 @@
 // v 0.01
  let cloud = window.location.hostname.split('.')[0]
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
+ let location = ""
 $(() => {
   
     //Get vehicles from database
@@ -43,7 +44,7 @@ $(() => {
   
                 let row = table.insertRow();
                 Object.keys(obj).forEach(function (k) {
-                    // console.log(k);
+                    console.log(k);
                     let cell = row.insertCell();
                     cell.appendChild(document.createTextNode(obj[k]));
                 })
@@ -54,7 +55,6 @@ $(() => {
           $(this).addClass('selected').siblings().removeClass('selected');
               let id = $(this).find('td:first').html();
               let vType = $(this).find('td:last').html();
-              console.log("we clicked on this hoe");
               alert(id);
           fetch( cloudURL + "/api/v1/supply//getVehicleLocation?vehicleId=" + $("table tr.selected td:first").html()
            , {
@@ -63,13 +63,15 @@ $(() => {
                  console.log(response);
                  return response.json()
              }).then((mydata) => {
-                 console.log(mydata)
+                 console.log(mydata);
+                 location = mydata['location'];
+                 console.log(location);
+                 
            });
         });
     })
     
   });
-
   
   mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
   
