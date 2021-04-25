@@ -2,11 +2,13 @@
 function adjust_coordinate(loc)
   {
     var array_strings = loc.split(",");
-    return array_strings;
+    var array_floats = [parseFloat(array_strings[0]), parseFloat(array_strings[1])];
+    return array_floats;
   }
  let cloud = window.location.hostname.split('.')[0]
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
  let location_vehicle = ""
+ let coordinate_vehicle = []
 $(() => {
   
     //Get vehicles from database
@@ -71,8 +73,8 @@ $(() => {
                  console.log(mydata);
                  location_vehicle = mydata['location'];
                  console.log(location_vehicle);
-                 array = adjust_coordinate(location_vehicle);
-                   console.log(array);
+                 coordinate_vehicle = adjust_coordinate(location_vehicle);
+                 console.log(coordinate_vehicle);
            });
         });
 
