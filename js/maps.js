@@ -77,14 +77,14 @@ $(() => {
                  console.log(coordinate_vehicle);
                   mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
 
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-97.7, 30.2],
-    zoom: 6
-  });
-    map.on('load', function ()
-    {
+                  var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/light-v10',
+                    center: coordinate_vehicle,
+                    zoom: 3
+                  });
+                  map.on('load', function ()
+                  {
       // Load an image from an external URL.
       map.loadImage(
       'https://cdn3.iconfinder.com/data/icons/transport-02-set-of-vehicles-and-cars/110/Vehicles_and_cars_12-512.png',
@@ -129,6 +129,8 @@ $(() => {
       }
       );
   });
+  map.addControl(new mapboxgl.NavigationControl());
+
            });
         });
 
