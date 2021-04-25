@@ -38,9 +38,9 @@ $(() => {
 
     $("#addVehicleButton").click(() => {
         let vType = $("#vType").val();      
-        let status = $('input[name="status"]:checked').val();
-        let dock = ''
-    
+        let status = "oos";
+        let dock = "-97.74562,30.256937";
+
         let data = {
             'cloud': cloud,
             'status' : status,
@@ -69,7 +69,6 @@ $(() => {
 
         $("#addFleetButton").click(() => {
             let vType = $("#fleetVType").val();      
-            let plugInIds = $("#pluginIds").val().split(/\s*,\s*/);
             let totalVehicles = 0
 
             let dock = ''
@@ -77,7 +76,6 @@ $(() => {
             let data = {
                 'cloud': cloud,
                 'totalVehicles' : totalVehicles,
-                'pluginIds': plugInIds,
                 'vType' : vType
             };
         

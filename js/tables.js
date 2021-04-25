@@ -9,7 +9,9 @@ $(() => {
       console.log(response);
       return response.json()
   }).then((mydata) => {
-      //console.log(typeof (mydata));
+      console.log(typeof (mydata));
+      console.log(mydata);
+      
       //function to create header of table
       function addHeaders(table, keys) {
         table.tHead = document.createElement('thead');
@@ -29,6 +31,7 @@ $(() => {
         let section = mydata[i];
         // console.log("first loop", section
         let table = document.createElement('table');
+
       //create each row and header of table
         for (let m = 0; m < Object.keys(section).length; m++) {
           let obj = section[m];
@@ -48,8 +51,10 @@ $(() => {
             let cell = row.insertCell();
             cell.appendChild(document.createTextNode(obj[k]));
           })
+
           document.getElementById('container').appendChild(table)
           document.getElementById('container').appendChild(document.createElement("br"));
+
         }
       }
 
