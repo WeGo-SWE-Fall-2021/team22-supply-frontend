@@ -81,7 +81,7 @@ $(() => {
                     container: 'map',
                     style: 'mapbox://styles/mapbox/light-v10',
                     center: coordinate_vehicle,
-                    zoom: 12
+                    zoom: 15
                   });
                   map.on('load', function ()
                   {
@@ -129,7 +129,7 @@ $(() => {
       }
       );
   });
-  map.addControl(new mapboxgl.NavigationControl());
+  map.addControl(new mapboxgl.NavigationControl({position: 'top-left'}));
 
            });
         });
