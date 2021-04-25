@@ -75,20 +75,13 @@ $(() => {
                  console.log(location_vehicle);
                  coordinate_vehicle = adjust_coordinate(location_vehicle);
                  console.log(coordinate_vehicle);
-           });
-        });
+                  mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
 
-    })
-    
-  });
-
-  mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
-  
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
     center: [-97.7, 30.2],
-    zoom: 9
+    zoom: 6
   });
     map.on('load', function ()
     {
@@ -98,10 +91,10 @@ $(() => {
       function (error, image)
       {
         if (error) throw error;
-  
+
         // Add the image to the map style.
         map.addImage('vehicle', image);
-  
+
         // Add a data source containing one point feature.
         map.addSource('point',
         {
@@ -120,7 +113,7 @@ $(() => {
             ]
           }
         });
-  
+
         // Add a layer to use the image to represent the data.
         map.addLayer(
         {
@@ -136,6 +129,14 @@ $(() => {
       }
       );
   });
+           });
+        });
+
+    })
+    
+  });
+
+
 
   
   
