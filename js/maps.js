@@ -1,7 +1,7 @@
 // v 0.01
  let cloud = window.location.hostname.split('.')[0]
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
- let location = ""
+ let location_vehicle = ""
 $(() => {
   
     //Get vehicles from database
@@ -64,8 +64,8 @@ $(() => {
                  return response.json()
              }).then((mydata) => {
                  console.log(mydata);
-                 location = mydata['location'];
-                 console.log(location);
+                 location_vehicle = mydata['location'];
+                 console.log(location_vehicle);
                  
            });
         });
