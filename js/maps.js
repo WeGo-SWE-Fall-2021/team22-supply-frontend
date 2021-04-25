@@ -9,6 +9,7 @@ function adjust_coordinate(loc)
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
  let location_vehicle = ""
  let coordinate_vehicle = []
+ setInterval(function(){
 $(() => {
   
     //Get vehicles from database
@@ -137,7 +138,7 @@ $(() => {
     })
     
   });
-
+}, 60000);
 
 
   
