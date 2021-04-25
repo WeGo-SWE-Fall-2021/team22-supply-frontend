@@ -114,7 +114,7 @@ $(() => {
             'type': 'Feature',
             'geometry': {
             'type': 'Point',
-            'coordinates': [-97.7, 30.2]
+            'coordinates': coordinate_vehicle
             }
             }
             ]
