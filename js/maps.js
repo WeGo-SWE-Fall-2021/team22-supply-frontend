@@ -56,15 +56,15 @@ $(() => {
               let vType = $(this).find('td:last').html();
               console.log("we clicked on this hoe");
               alert(id);
-      //     fetch( cloudURL + "/api/v1/supply//getVehicleLocation?vehicleId=" + $("table tr.selected td:first").html()
-      //      , {
-      //        method: "GET"
-      //        }).then((response) => {
-      //            console.log(response);
-      //            return response.json()
-      //        }).then((mydata) => {
-      //            console.log(mydata)
-      //      });
+          fetch( cloudURL + "/api/v1/supply//getVehicleLocation?vehicleId=" + $("table tr.selected td:first").html()
+           , {
+             method: "GET"
+             }).then((response) => {
+                 console.log(response);
+                 return response.json()
+             }).then((mydata) => {
+                 console.log(mydata)
+           });
         });
     })
     
