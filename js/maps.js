@@ -129,7 +129,7 @@ $(() => {
       }
       );
   });
-  map.addControl(new mapboxgl.NavigationControl({position: 'top-right'}));
+  map.addControl(new mapboxgl.NavigationControl());
 
            });
         });
