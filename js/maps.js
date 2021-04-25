@@ -81,7 +81,7 @@ $(() => {
                     container: 'map',
                     style: 'mapbox://styles/mapbox/light-v10',
                     center: coordinate_vehicle,
-                    zoom: 3
+                    zoom: 12
                   });
                   map.on('load', function ()
                   {
