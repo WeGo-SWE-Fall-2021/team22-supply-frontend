@@ -48,7 +48,7 @@ $(() => {
                 })
             }
         }
-        document.getElementById('container').appendChild(table)
+        document.getElementById('fullTable').appendChild(table)
     })
   });
       
