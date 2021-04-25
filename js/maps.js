@@ -66,19 +66,19 @@ $(() => {
                  console.log(mydata);
                  location_vehicle = mydata['location'];
                  console.log(location_vehicle);
-                 
+                 array = adjust_coordinate(location_vehicle);
+                   console.log(array);
            });
         });
+
     })
     
   });
-  function adjust_coordinate(loc)
+     function adjust_coordinate(loc)
   {
     var array_strings = loc.split(",");
     return array_strings;
   }
-  array = adjust_coordinate(location_vehicle);
-  console.log(array);
   mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
   
   var map = new mapboxgl.Map({
