@@ -1,5 +1,6 @@
+// v 0.01
 $(() => {
-    let cloud = window.location.hostname.split('.')[0]
+   let cloud = window.location.hostname.split('.')[0]
     let cloudURL = `https://${cloud}.team22.sweispring21.tk`
   
     //Get vehicles from database
@@ -50,18 +51,28 @@ $(() => {
         }
         document.getElementById('fullTable').appendChild(table)
     })
-  });
-      
+    
   $("table tr").click(function() {     
-      $(this).addClass('selected').siblings().removeClass('selected');
-          let id = $(this).find('td:last').html();
-          let vType = $(this).find('td:first').html();
-        // and give it the selected value
-        let newContent = "vehicle: " + id + " of vehicle type: " + vType;
+    $(this).addClass('selected').siblings().removeClass('selected');
+        let id = $(this).find('td:first').html();
+        let vType = $(this).find('td:last').html();        
+});
+
+    fetch( cloudURL + "/api/v1/supply//getVehicleLocation?vehicleId=" + $("table tr.selected td:first").html()
+    , {
+      method: "GET"
+       }).then((response) => {
+          console.log(response);
+          return response.json()
+      }).then((mydata) => {
+          console.log(mydata)
+      })
       
-       $(".textVehicle").html("<h3>" + newContent+ "<h3>");
-      
+
+
   });
+
+
   
   mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
   
