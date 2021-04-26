@@ -89,11 +89,10 @@ $(() => {
                 if (vType == null || vType == undefined || vType.length == 0) {
                     alert("vehicle type cannot be empty");
                 }
-                else if (fleetTypes.includes(vType)){
+                else if (mydata.includes(vType)){
                     alert("That fleet already exsists");
                 }
-        
-                else{
+                else {
 
                     let data = {
                         'cloud': cloud,
