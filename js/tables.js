@@ -21,7 +21,7 @@ $(() => {
           //var cell = row.insertCell();
           //cell.appendChild(document.createTextNode(keys[i]));
           const th = document.createElement('th');
-          th.textContent = keys[i]
+          th.textContent = keys[i] 
           tHeadTR.appendChild(th);
         }
       }
@@ -57,8 +57,19 @@ $(() => {
 
         }
       }
-
   }).catch(err => {
       throw err
+  });
+
+  $("table tr").click(function() {
+    $(this).addClass('selected').siblings().removeClass('selected');
+    let vType = $(this).find('td:last').html();
+    let id = $(this).find('td:first').html();
+
+  if (confirm("Are you sure you want to remove Vehicle: " +  id + "\nIts is of type: " + vType)) {
+    console.log("delete");
+  } else {
+    console.log("cancel");
+  }
   });
 });
