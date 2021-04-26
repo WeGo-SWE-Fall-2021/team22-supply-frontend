@@ -1,10 +1,13 @@
 table {
+    height: 650px;
+    overflow-y: scroll;
     border-collapse: collapse;
-    width: 100%;
     margin: 25px 0;
-    font-size: 0.9em;
+    font-size: 0.5em;
     font-family: sans-serif;
-    min-width: 400px;
+    display: table-caption;
+    caption-side: bottom;
+    width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
   
@@ -14,6 +17,7 @@ table {
   }
   
   table tbody tr {
+  
       border-bottom: 1px solid #dddddd;
   }
   
@@ -30,6 +34,8 @@ table {
     background-color: #009879;
       color: #ffffff;
       text-align: left;
+      position: sticky;
+      top: 0;
   }
   table tbody tr:last-of-type {
       border-bottom: 2px solid #009879;
