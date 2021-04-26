@@ -44,7 +44,8 @@ $(() => {
             console.log(response);
             return response.json()
         }).then((mydata) => {
-            
+            console.log(typeof (mydata));
+            console.log(mydata);
             return mydata
         })
     }
@@ -80,12 +81,17 @@ $(() => {
             })
         });
 
+        function trim(stringToTrim) {
+            return stringToTrim.replace(/^\s+|\s+$/g,"");
+        }
+
         $("#addFleetButton").click(() => {
-            let vType = $("#fleetVType").val();      
+            let vType = trim($("#fleetVType").val());      
             let totalVehicles = 0
 
             fleetTypes = getFleetTypes();
-            console.log(fleetTypes);
+            console.log(type(fleetTypes));
+
 
             if (vType == null || vType == undefined || vType.length == 0) {
                 alert("vehicle type cannot be empty");
