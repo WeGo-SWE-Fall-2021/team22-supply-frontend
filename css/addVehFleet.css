@@ -1,0 +1,96 @@
+.text.text-success.text-center{
+    text-align: center;
+    position: relative;
+  }
+  
+  .logoutButtonlogoutButton{
+     position: fixed;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .addVehicle, .addFleet {
+      -webkit-border-radius: 20px 20px 20px 20px;
+      border-radius: 20px 20px 20px 20px;
+      background: lightblue;
+      height: 200px;
+      width: 90%;
+      max-width: 350px;
+      padding: 5px;
+      -webkit-box-shadow: 0px 30px 0px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+      text-align: -webkit-center;
+      line-height: normal;
+      color: darkslategray;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 25px;
+      float: left;
+      margin: 10px;
+    }
+  
+  
+  
+    .totalVehicles, .fleetCount, .vehiclesReady{
+      -webkit-border-radius: 20px 20px 20px 20px;
+      border-radius: 20px 20px 20px 20px;
+      background: lightblue;
+      height: 150px;
+      width: 90%;
+      max-width: 300px;
+      position: relative;
+      padding: 5px;
+      -webkit-box-shadow: 0px 30px 0px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+      text-align: -webkit-center;
+      line-height: normal;
+      color: darkslategray;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 25px;
+      float: left;
+      margin: 10px;
+    }
+  
+    .vehiclesOOS, .vehiclesBusy, .dispatchComplete  {
+      -webkit-border-radius: 20px 20px 20px 20px;
+      border-radius: 20px 20px 20px 20px;
+      background: lightblue;
+      height: 150px;
+      width: 90%;
+      max-width: 300px;
+      position: relative;
+      padding: 5px;
+      -webkit-box-shadow: 0px 30px 0px 0px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+      text-align: -webkit-center;
+      line-height: normal;
+      color: darkslategray;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 25px;
+      float: left;
+      margin: 10px;
+    }
+  
+    .container1{
+      position: relative;
+      float:left;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+     .container2{
+       position: relative;
+       float:left;
+       min-width: 100%;
+       display: flex;
+       justify-content: center;
+     }
+    .container3{
+      position: relative;
+      float:left;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  
+  
+  

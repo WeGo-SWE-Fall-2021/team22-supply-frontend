@@ -127,4 +127,19 @@ $(() => {
                     }
                 })
         });
+
+        fetch( cloudURL + "/api/v1/supply/getKPIS", {
+            method: "GET"
+        }).then((response) => {
+            console.log(response);
+            return response.json()
+        }).then((kpis) => {
+            console.log(kpis);
+            document.getElementById("p1").textContent += kpis["vehicleCount"];
+            document.getElementById("p2").textContent += kpis["fleetCount"];
+            document.getElementById("p3").textContent += kpis["vehiclesReady"];
+            document.getElementById("p4").textContent += kpis["vehiclesOOS"];
+            document.getElementById("p5").textContent += kpis["vehiclesBusy"];
+            document.getElementById("p6").textContent += kpis["dispatchComplete"];
+        })
     });

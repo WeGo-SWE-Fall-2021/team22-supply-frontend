@@ -1,44 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-	
-		<title>
-			Fleet Manager Dashboard
-		</title>
 
-		<link rel="stylesheet" href="css/main.css">
+  <head>
+    <meta charset="utf-8">
 
-		<!-- Remote js scripts -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>
+      Fleet Manager Dashboard
+    </title>
 
-		<!-- Local Common Services JS files-->
-		<script src="../common/js/fetchLoggedInUser.js"></script>
-		<script src="../common/js/logoutUser.js"></script>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/addVehFleet.css">
 
-		<!-- Local JS Scripts -->
-		<script src="js/dashboard.js"></script>
+    <!-- Remote js scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	</head>
-	<body>
-		<div class="sidenav">
-			<a href="dashboard.html">Main</a>
-			<a href="#profile">Profile</a>
-			<a href="tables.html">Fleet Tables</a>
-			<a href="addVehFLeet.html">Add New Fleet or Vehicle</a>
-			<a href="map.html">Maps</a>
-		  </div>
-		
-		<div class = "main">
-		<div class="container">
-			<div>
-				<h1 class="text text-success text-center ">
-					Fleet Manager Dashboard
-				</h1>
-				<button id="logoutButton">Log out</button>
+    <!-- Local Common Services JS files-->
+   	<script src="../common/js/fetchLoggedInUser.js"></script>-->
+	<script src="../common/js/logoutUser.js"></script>
+
+
+
+  </head>
+
+  <body>
+    <div class="sidenav">
+      <a href="dashboard.html">Main</a>
+      <a href="#profile">Profile</a>
+      <a href="tables.html">Fleet Tables</a>
+      <a href="addVehFLeet.html">Add New Fleet or Vehicle</a>
+      <a href="map.html">Maps</a>
+    </div>
+
+    <div class="main">
+        <div>
+          <h1 class="text text-success text-center ">
+            Add Fleets and Vehicles
+          </h1>
+         <button id="logoutButton">Log out</button>
+
+        </div>
+
+		<div class = "parent">
+			<div class = "container1">
+				<div class ="totalVehicles">
+					<h3>Total Vehicles</h3>
+					<p id="p1"></p>
+				</div>
+
+				<div class ="fleetCount">
+					<h3>Total Fleets</h3>
+					<p id="p2"></p>
+				</div>
+
+				<div class ="vehiclesReady">
+					<h3>Ready Vehicles</h3>
+					<p id="p3"></p>
+				</div>
 			</div>
-	</div>
-</div>
-			
-	</body>
+
+			<div class = "container2">
+				<div class ="vehiclesOOS">
+					<h3>O.O.S Vehicles</h3>
+					<p id="p4"></p>
+				</div>
+
+				<div class ="vehiclesBusy">
+					<h3>Busy Vehicles</h3>
+					<p id="p5"></p>
+				</div>
+
+				<div class ="dispatchComplete">
+					<h3>Dispatch Complete</h3>
+					<p id="p6"></p>
+				</div>
+			</div>
+
+			<div class = "container3">
+				<div class="addVehicle">
+				  <h2>Add a Vehicle</h2>
+				  <select id="sel">
+					<option value="">-- Select --</option>
+				  </select>
+				  <button id="addVehicleButton">add vehicle</button>
+				</div>
+
+				<div class="addFleet">
+				  <h2>Add a Fleet</h2>
+				  Vehicle Type
+				  <input type="text" id="fleetVType"><br>
+				  total Vehicles = 0
+				  <br>
+				  <button id="addFleetButton">add fleet</button>
+				</div>
+
+			</div>
+
+		</div>
+      </div>
+
+  </body>
+ 	<!-- Local JS Scripts -->
+ 	<script src="js/addVehFleet.js"></script>
+
 </html>
