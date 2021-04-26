@@ -133,8 +133,8 @@ $(() => {
                             console.log(data)
                         }).catch(error => {
                             throw error 
-            
                         })
+                        location.reload();
                     }
                 })
             });
