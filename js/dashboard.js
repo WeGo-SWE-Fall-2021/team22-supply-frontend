@@ -36,20 +36,7 @@ $(() => {
         })
     });
 
-    function getFleetTypes()
-    {
-        fetch( cloudURL + "/api/v1/supply/getAllvTypes", {
-            method: "GET"
-        }).then((response) => {
-            console.log(response);
-            return response.json()
-        }).then((mydata) => {
-            console.log(typeof (mydata));
-            console.log(mydata);
-            return mydata
-        })
-    }
-
+    
     $("#addVehicleButton").click(() => {
         let vType = $("#vType").val();      
         let status = "oos";
@@ -89,42 +76,50 @@ $(() => {
             let vType = trim($("#fleetVType").val());      
             let totalVehicles = 0
 
-            fleetTypes = getFleetTypes();
-            console.log(type(fleetTypes));
+            console.log(vType);
 
-
-            if (vType == null || vType == undefined || vType.length == 0) {
-                alert("vehicle type cannot be empty");
-            }
-            else if (fleetTypes.includes(vType)){
-                alert("That fleet already exsists");
-            }
-            else{
-
-                let data = {
-                    'cloud': cloud,
-                    'totalVehicles' : totalVehicles,
-                    'vType' : vType
-                };
-            
-                    fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/supply/fleet`, {
-                        method: "POST",
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    }).then(response => {
-                        if (response.ok) {
-                            return response.json();
-                        }
-                        return Promise.reject(response)
-                    }).then(data => {
-                        console.log(data)
-                    }).catch(error => {
-                         throw error 
-        
-                    })
+            fetch( cloudURL + "/api/v1/supply/getAllvTypes", {
+                method: "GET"
+            }).then((response) => {
+                console.log(response);
+                return response.json()
+            }).then((mydata) => {
+                console.log(typeof (mydata));
+                console.log(mydata);
+                if (vType == null || vType == undefined || vType.length == 0) {
+                    alert("vehicle type cannot be empty");
                 }
+                else if (fleetTypes.includes(vType)){
+                    alert("That fleet already exsists");
+                }
+        
+                else{
+
+                    let data = {
+                        'cloud': cloud,
+                        'totalVehicles' : totalVehicles,
+                        'vType' : vType
+                    };
+                
+                        fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/supply/fleet`, {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        }).then(response => {
+                            if (response.ok) {
+                                return response.json();
+                            }
+                            return Promise.reject(response)
+                        }).then(data => {
+                            console.log(data)
+                        }).catch(error => {
+                            throw error 
+            
+                        })
+                    }
+                })
             });
-});
+    });
     
