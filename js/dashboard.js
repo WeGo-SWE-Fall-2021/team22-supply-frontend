@@ -36,9 +36,23 @@ $(() => {
         })
     });
 
+    fetch( cloudURL + "/api/v1/supply/getAllvTypes", {
+        method: "GET"
+    }).then((response) => {
+        console.log(response);
+        return response.json()
+    }).then((mydata) => {
+        console.log(mydata);
+        var ele = document.getElementById('sel');
+        for (var i = 0; i < mydata.length; i++) {
+            ele.innerHTML = ele.innerHTML +
+                '<option value="' + mydata[i] + '">' + mydata[i] + '</option>';
+        }
+    })
     
     $("#addVehicleButton").click(() => {
-        let vType = $("#vType").val();      
+        var e = document.getElementById("sel");
+        let vType = e.value     
         let status = "oos";
         let dock = "-97.74562,30.256937";
 
