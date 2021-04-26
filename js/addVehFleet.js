@@ -140,6 +140,5 @@ $(() => {
             document.getElementById("p3").textContent += kpis["vehiclesReady"];
             document.getElementById("p4").textContent += kpis["vehiclesOOS"];
             document.getElementById("p5").textContent += kpis["vehiclesBusy"];
-            document.getElementById("p6").textContent += kpis["dispatchComplete"];
         })
     });
