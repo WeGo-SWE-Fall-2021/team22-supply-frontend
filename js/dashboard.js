@@ -52,34 +52,38 @@ $(() => {
     
     $("#addVehicleButton").click(() => {
         var e = document.getElementById("sel");
-        let vType = e.value     
+        let vType = e.value
         let status = "oos";
         let dock = "-97.74562,30.256937";
+        if (vType == "There are no fleets yet" || vType == "") {
+            alert("Please add a fleet.");
+        }
+        else {
 
-        let data = {
-            'cloud': cloud,
-            'status' : status,
-            'dock': dock,
-            'vType' : vType
-        };
-    
-            fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/supply/vehicle`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            }).then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                return Promise.reject(response)
-            }).then(data => {
-                console.log(data)
-            }).catch(error => {
-                throw error
+            let data = {
+                'cloud': cloud,
+                'status' : status,
+                'dock': dock,
+                'vType' : vType
+            };
+                fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/supply/vehicle`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    return Promise.reject(response)
+                }).then(data => {
+                    console.log(data)
+                }).catch(error => {
+                    throw error
 
-            })
+                })
+            }
         });
 
         function trim(stringToTrim) {
@@ -135,4 +139,3 @@ $(() => {
                 })
             });
     });
-    
