@@ -1,5 +1,5 @@
 table {
-    height: 650px;
+    height: 250px;
     overflow-y: scroll;
     border-collapse: collapse;
     margin: 25px 0;
@@ -7,29 +7,30 @@ table {
     font-family: sans-serif;
     display: table-caption;
     caption-side: bottom;
-    width: 100%;
+    width: 1300px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
-  
+
   table th,
   table td {
       padding: 12px 15px;
+      width: 1300px;
   }
-  
+
   table tbody tr {
-  
+
       border-bottom: 1px solid #dddddd;
   }
-  
-  table tr:nth-child(even) {
+
+  table tr:nth-child(odd) {
       background-color: #f3f3f3;
   }
-  
+
   table tr:hover {
   font-weight: bold;
       color: #009879;
   }
-  
+
   table th {
     background-color: #009879;
       color: #ffffff;
@@ -40,11 +41,10 @@ table {
   table tbody tr:last-of-type {
       border-bottom: 2px solid #009879;
   }
-  
+
   header {
       font-family: sans-serif;
     text-align: center;
     color: black;
     font-size: 20px;
   }
-  
