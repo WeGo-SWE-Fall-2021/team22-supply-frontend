@@ -103,7 +103,7 @@ $('#logoutButton').click(() => {
     let vType = $(this).find('td:last').html();
     let id = $(this).find('td:first').html();
 
-    if (confirm("Are you sure you want to remove Vehicle: " +  id + "\nIts is of type: " + vType)) {
+    if (confirm("Are you sure you want to remove this vehicle?\nVehicle: " +  id + "\ntype: " + vType)) {
       console.log("delete vehicle");
       let data = {
         'cloud': cloud,
@@ -123,7 +123,13 @@ $('#logoutButton').click(() => {
             return Promise.reject(response)
         }).then(data => {
             console.log(data)
-            location.reload();
+            if(data.html == "This vehicle is on a route \n Please delete after the route is complete"){
+              alert(data.html);
+              location.reload();
+            }
+            else{
+              alert(data.html);
+            }
         }).catch(error => {
             throw error
         })
