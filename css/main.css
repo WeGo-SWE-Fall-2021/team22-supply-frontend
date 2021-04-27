@@ -4,7 +4,7 @@ body {
   
   .sidenav {
     height: 100%;
-    width: 160px;
+    width: 200px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -35,4 +35,18 @@ body {
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+  }
+  #logoutButton{
+    background:none;
+    border:none;
+    margin:0;
+    /*padding:0;*/
+    cursor: pointer;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: darkslategrey;
+}
+#logoutButton:hover {
+    color: #f1f1f1;
   }

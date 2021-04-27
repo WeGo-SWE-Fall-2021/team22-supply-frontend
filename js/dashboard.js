@@ -3,15 +3,20 @@ $(() => {
     let cloudURL = `https://${cloud}.team22.sweispring21.tk`
 
     // Handle user data if there is someone is logged in, else redirect them to login page
-
-    // fetchLoggedInUser().then(data => {
-    //     if (data.status === 200) {
-    //         // Success in fetching data now update dashboard with the new data
-    //     } else {
-    //         // Was not able to fetch user
-    //         window.location.replace(cloudURL + "/login.html")
-    //     }
-    // })
+    fetchLoggedInUser(cloud).then(response => {
+        // Success getting user
+        if (response.status == 200) {
+            $("#dashBoardWelcome").text(response.body.user.username);
+        } else {
+            console.log("Was unable to get user using cookies.")
+            // Failed to get user with token, route them back to login
+            window.location.replace(cloudURL + '/login.html')
+        }
+    }).catch(error => {
+        // Error fetching
+        console.error("Error fetching: " + error)
+        showAlert("There was an error getting information.")
+    });
 
     // If a user clicks on the logout button, cookies will be empty and will be taken to main page
     $('#logoutButton').click(() => {

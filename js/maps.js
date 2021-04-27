@@ -11,6 +11,22 @@ function adjust_coordinate(loc)
  let coordinate_vehicle = []
 
 $(() => {
+
+   // Handle user data if there is someone is logged in, else redirect them to login page
+   fetchLoggedInUser(cloud).then(response => {
+    // Success getting user
+    if (response.status == 200) {
+        console.log("login success" + response)
+    } else {
+        console.log("Was unable to get user using cookies.")
+        // Failed to get user with token, route them back to login
+        window.location.replace(cloudURL + '/login.html')
+    }
+}).catch(error => {
+    // Error fetching
+    console.error("Error fetching: " + error)
+    showAlert("There was an error getting information.")
+});
   
     //Get vehicles from database
     fetch( cloudURL + "/api/v1/supply/returnVehicles", {
