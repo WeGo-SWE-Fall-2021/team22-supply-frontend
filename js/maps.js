@@ -156,7 +156,8 @@ $('#logoutButton').click(() => {
       }
       );
   });
-  map.addControl(new mapboxgl.NavigationControl({position: 'top-left'}));
+  var nav = new mapboxgl.NavigationControl();
+  map.addControl(nav, 'top-left');
 
            });
         });
