@@ -39,7 +39,7 @@ $(() => {
             let h = document.createElement("HEADER");
             document.getElementById('tables').appendChild(h);
             let h2 = document.createElement("H2");
-            let txt = document.createTextNode("Fleet " + i);
+            let txt = document.createTextNode("Fleet " + (i+1));
             h2.appendChild(txt);
             h.appendChild(h2);
             addHeaders(table, Object.keys(obj));
@@ -52,7 +52,7 @@ $(() => {
           })
 
           document.getElementById('tables').appendChild(table)
-          document.getElementById('tables').appendChild(document.createElement("br"));
+          // document.getElementById('tables').appendChild(document.createElement("br"));
 
         }
       }

@@ -16,20 +16,13 @@ $(() => {
     fetch( cloudURL + "/api/v1/supply/returnVehicles", {
         method: "GET"
     }).then((response) => {
-        console.log(response);
         return response.json()
     }).then((mydata) => {
-        console.log(typeof (mydata));
-        console.log(mydata);
-        
         //table creation - headers
         function addHeaders(table, keys) {
             table.tHead = document.createElement('thead');
             const tHeadTR = table.tHead.insertRow(-1);
-            // 	var row = table.insertRow();
             for (var i = 0; i < keys.length; i++) {
-                // var cell = row.insertCell();
-                // cell.appendChild(document.createTextNode(keys[i]));
                 const th = document.createElement('th');
                 th.textContent = keys[i]
                 tHeadTR.appendChild(th);
@@ -40,19 +33,13 @@ $(() => {
   
         for (var i = 0; i < mydata.length; i++) {
             var section = mydata[i];
-            // console.log("first loop", section)
-            
             for (let m = 0; m < Object.keys(section).length; m++) {
                 let obj = section[m];
-                // console.log("second loop", obj)
-  
                 if (m == 0 && i == 0) {
                     addHeaders(table, Object.keys(obj));
                 }
-  
                 let row = table.insertRow();
                 Object.keys(obj).forEach(function (k) {
-                    console.log(k);
                     let cell = row.insertCell();
                     cell.appendChild(document.createTextNode(obj[k]));
                 })
