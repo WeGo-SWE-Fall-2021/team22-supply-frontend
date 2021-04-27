@@ -122,14 +122,14 @@ $('#logoutButton').click(() => {
             }
             return Promise.reject(response)
         }).then(data => {
-            console.log(data)
-            if(data.html == "This vehicle is on a route \n Please delete after the route is complete"){
-              alert(data.html);
-              location.reload();
-            }
-            else{
-              alert(data.html);
-            }
+          console.log(data);
+          if(data["alertResponse"] == "successfully deleted"){
+            alert(data["response"]);
+            location.reload();
+          }
+          else{
+            alert(data["alertResponse"]);
+          }
         }).catch(error => {
             throw error
         })
