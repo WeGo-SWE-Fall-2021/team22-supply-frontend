@@ -60,7 +60,6 @@ $(() => {
         var e = document.getElementById("sel");
         let vType = e.value
         let status = "oos";
-        let dock = "-97.74562,30.256937";
         if (vType == "There are no fleets yet" || vType == "") {
             alert("Please add a fleet.");
         }
@@ -69,7 +68,6 @@ $(() => {
             let data = {
                 'cloud': cloud,
                 'status' : status,
-                'dock': dock,
                 'vType' : vType
             };
                 fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/supply/vehicle`, {
