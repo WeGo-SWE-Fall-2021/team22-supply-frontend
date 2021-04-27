@@ -6,7 +6,7 @@ $(() => {
     fetchLoggedInUser(cloud).then(response => {
         // Success getting user
         if (response.status == 200) {
-            $("#dashBoardWelcome").text("Welcome" + response.body.user.username);
+            $("#dashBoardWelcome").text("Welcome " + response.body.user.username);
         } else {
             console.log("Was unable to get user using cookies.")
             // Failed to get user with token, route them back to login

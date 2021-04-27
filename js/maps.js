@@ -27,6 +27,29 @@ $(() => {
     console.error("Error fetching: " + error)
     showAlert("There was an error getting information.")
 });
+
+// If a user clicks on the logout button, cookies will be empty and will be taken to main page
+$('#logoutButton').click(() => {
+  let data = {
+      "cloud": cloud
+  }
+  fetch(cloudURL + "/api/v1/common-services/logout", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+  }).then(response => {
+      if (response.ok) {
+          return response.json();
+      }
+      return Promise.reject(response);
+  }).then(data => {
+      window.location.replace(cloudURL);
+  }).catch(error => {
+      // Handle error
+  })
+});
   
     //Get vehicles from database
     fetch( cloudURL + "/api/v1/supply/returnVehicles", {
