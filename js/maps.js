@@ -181,3 +181,4 @@ function clearDiv(divName)
     loadMap();
     setTimeout(mainFunc, 15000);
 }
+mainFunc();

@@ -124,7 +124,7 @@ $('#logoutButton').click(() => {
         }).then(data => {
           console.log(data);
           if(data["alertResponse"] == "successfully deleted"){
-            alert(data["response"]);
+            alert(data["alertResponse"]);
             location.reload();
           }
           else{
