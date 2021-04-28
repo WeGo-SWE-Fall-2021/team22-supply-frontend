@@ -41,8 +41,8 @@ function createMapVehicle(vId)
                     center: coordinate_vehicle,
                     zoom: 15
                   });
-                  map.on('load', function ()
-                  {
+      map.on('load', function ()
+      {
       // Load an image from an external URL.
       map.loadImage(
       'https://cdn3.iconfinder.com/data/icons/transport-02-set-of-vehicles-and-cars/110/Vehicles_and_cars_12-512.png',
@@ -71,6 +71,7 @@ function createMapVehicle(vId)
           }
         });
 });
+
         // Add a layer to use the image to represent the data.
         map.addLayer(
         {
@@ -83,13 +84,13 @@ function createMapVehicle(vId)
           'icon-size': 0.25
           }
         });
-      }
-      );
+
+      });
   });
   var nav = new mapboxgl.NavigationControl();
   map.addControl(nav, 'top-left');
 
-});
+}
 function loadTableMap()
 {
 $(() => {
