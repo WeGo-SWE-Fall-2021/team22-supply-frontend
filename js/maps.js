@@ -7,94 +7,9 @@ function adjust_coordinate(loc)
   }
  let cloud = window.location.hostname.split('.')[0]
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
- var location_vehicle = "";
- var coordinate_vehicle = [];
- let previousVehicleId = []; // used to stored
- mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
-function createMapNoVehicle()
-{
-    clearDiv("map");
-    var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/light-v10',
-                    center: [0,0],
-                    zoom: 15
-                  });
-}
-function createMapVehicle(vId)
-{
-           clearDiv("map");
-           fetch( cloudURL + "/api/v1/supply/getVehicleLocation?vehicleId=" + vId
-           , {
-             method: "GET"
-             }).then((response) => {
-                 console.log(response);
-                 return response.json()
-             }).then((mydata) => {
-                 console.log(mydata);
-                 location_vehicle = mydata['location'];
-                 console.log(location_vehicle);
-                 coordinate_vehicle = adjust_coordinate(location_vehicle);
-                 console.log(coordinate_vehicle);
+ let location_vehicle = ""
+ let coordinate_vehicle = []
 
-                  var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/light-v10',
-                    center: coordinate_vehicle,
-                    zoom: 15
-                  });
-      map.on('load', function ()
-      {
-      // Load an image from an external URL.
-      map.loadImage(
-      'https://cdn3.iconfinder.com/data/icons/transport-02-set-of-vehicles-and-cars/110/Vehicles_and_cars_12-512.png',
-      function (error, image)
-      {
-        if (error) throw error;
-
-        // Add the image to the map style.
-        map.addImage('vehicle', image);
-
-        // Add a data source containing one point feature.
-        map.addSource('point',
-        {
-          'type': 'geojson',
-          'data':
-          {
-            'type': 'FeatureCollection',
-            'features': [
-            {
-                'type': 'Feature',
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': coordinate_vehicle
-                }
-            }]
-          }
-        });
-});
-
-        // Add a layer to use the image to represent the data.
-        map.addLayer(
-        {
-          'id': 'points',
-          'type': 'symbol',
-          'source': 'point', // reference the data source
-          'layout':
-          {
-          'icon-image': 'vehicle', // reference the image
-          'icon-size': 0.25
-          }
-        });
-
-      });
-  });
-  var nav = new mapboxgl.NavigationControl();
-  map.addControl(nav, 'top-left');
-
-}
-function loadTableMap()
-{
 $(() => {
 
    // Handle user data if there is someone is logged in, else redirect them to login page
@@ -135,7 +50,7 @@ $('#logoutButton').click(() => {
       // Handle error
   })
 });
-  
+
     //Get vehicles from database
     fetch( cloudURL + "/api/v1/supply/returnVehicles", {
         method: "GET"
@@ -152,9 +67,9 @@ $('#logoutButton').click(() => {
                 tHeadTR.appendChild(th);
             }
         }
-  
+
         var table = document.createElement('table');
-  
+
         for (var i = 0; i < mydata.length; i++) {
             var section = mydata[i];
             for (let m = 0; m < Object.keys(section).length; m++) {
@@ -175,43 +90,82 @@ $('#logoutButton').click(() => {
               let id = $(this).find('td:first').html();
               let vType = $(this).find('td:last').html();
               alert(id);
-              createMapVehicle(id);
+          fetch( cloudURL + "/api/v1/supply//getVehicleLocation?vehicleId=" + $("table tr.selected td:first").html()
+           , {
+             method: "GET"
+             }).then((response) => {
+                 console.log(response);
+                 return response.json()
+             }).then((mydata) => {
+                 console.log(mydata);
+                 location_vehicle = mydata['location'];
+                 console.log(location_vehicle);
+                 coordinate_vehicle = adjust_coordinate(location_vehicle);
+                 console.log(coordinate_vehicle);
+                  mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
+
+                  var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/light-v10',
+                    center: coordinate_vehicle,
+                    zoom: 15
+                  });
+                  map.on('load', function ()
+                  {
+      // Load an image from an external URL.
+      map.loadImage(
+      'https://cdn3.iconfinder.com/data/icons/transport-02-set-of-vehicles-and-cars/110/Vehicles_and_cars_12-512.png',
+      function (error, image)
+      {
+        if (error) throw error;
+
+        // Add the image to the map style.
+        map.addImage('vehicle', image);
+
+        // Add a data source containing one point feature.
+        map.addSource('point',
+        {
+          'type': 'geojson',
+          'data':
+          {
+            'type': 'FeatureCollection',
+            'features': [
+            {
+            'type': 'Feature',
+            'geometry': {
+            'type': 'Point',
+            'coordinates': coordinate_vehicle
+            }
+            }
+            ]
+          }
+        });
+
+        // Add a layer to use the image to represent the data.
+        map.addLayer(
+        {
+          'id': 'points',
+          'type': 'symbol',
+          'source': 'point', // reference the data source
+          'layout':
+          {
+          'icon-image': 'vehicle', // reference the image
+          'icon-size': 0.25
+          }
+        });
+      }
+      );
+  });
+  var nav = new mapboxgl.NavigationControl();
+  map.addControl(nav, 'top-left');
+
            });
         });
 
     })
 
-  }
-function mainFunc()
-{
-    clearDiv("fullTable");
-    clearDiv("map");
-    if (coordinate_vehicle.length != 0)
-    {
-        createMapVehicle(coordinate_vehicle);
-    }
-    else
-    {
-        createMapNoVehicle();
-    }
-    loadTableMap();
-    console.log("updated!");
-    setTimeout(mainFunc, 10000);
-}
-mainFunc();
- function clearDiv(divName)
- {
-    document.getElementById(divName).innerHTML = "";
- }
+  });
+ setInterval(function(){
+    location.reload();
 
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
+ }, 60000);
