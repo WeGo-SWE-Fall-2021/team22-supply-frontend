@@ -170,7 +170,7 @@ $('#logoutButton').click(() => {
     clearDiv("fullTable");
     clearDiv("map");
     loadTableMap();
-
+    console.log("updated!");
  }, 3000);
 
  function clearDiv(divName)
