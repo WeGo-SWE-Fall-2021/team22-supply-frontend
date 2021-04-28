@@ -180,8 +180,8 @@ $('#logoutButton').click(() => {
     })
 
   }
- setInterval(function()
- {
+function mainFunc()
+{
     clearDiv("fullTable");
     clearDiv("map");
     if (coordinate_vehicle.length != 0)
@@ -194,8 +194,9 @@ $('#logoutButton').click(() => {
     }
     loadTableMap();
     console.log("updated!");
- }, 5000);
-
+    setTimeout(mainFunc, 10000);
+}
+mainFunc();
  function clearDiv(divName)
  {
     document.getElementById(divName).innerHTML = "";
