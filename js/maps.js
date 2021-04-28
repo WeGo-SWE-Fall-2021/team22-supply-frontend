@@ -13,6 +13,7 @@ function adjust_coordinate(loc)
  mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
 function createMapNoVehicle()
 {
+    clearDiv("map");
     var map = new mapboxgl.Map({
                     container: 'map',
                     style: 'mapbox://styles/mapbox/light-v10',
@@ -22,6 +23,7 @@ function createMapNoVehicle()
 }
 function createMapVehicle(vId)
 {
+           clearDiv("map");
            fetch( cloudURL + "/api/v1/supply//getVehicleLocation?vehicleId=" + vId
            , {
              method: "GET"
