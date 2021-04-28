@@ -89,7 +89,7 @@ function createMapVehicle(vId)
   var nav = new mapboxgl.NavigationControl();
   map.addControl(nav, 'top-left');
 
-}
+});
 function loadTableMap()
 {
 $(() => {
