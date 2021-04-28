@@ -5,7 +5,7 @@ function adjust_coordinate(loc)
     var array_floats = [parseFloat(array_strings[0]), parseFloat(array_strings[1])];
     return array_floats;
   }
-function
+
  let cloud = window.location.hostname.split('.')[0]
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
  let location_vehicle = ""
