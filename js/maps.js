@@ -177,8 +177,7 @@ $('#logoutButton').click(() => {
         });
 
     })
-    
-  });
+
   }
  setInterval(function(){
     clearDiv("fullTable");
