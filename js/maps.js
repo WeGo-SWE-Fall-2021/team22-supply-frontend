@@ -179,6 +179,6 @@ function clearDiv(divName)
     clearDiv("fullTable");
     clearDiv("map");
     loadMap();
-    setTimeout(mainFunc, 15000);
+    setTimeout(mainFunc, 30000);
 }
 mainFunc();
