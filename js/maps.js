@@ -70,7 +70,7 @@ function createMapVehicle(vId)
             }]
           }
         });
-}
+});
         // Add a layer to use the image to represent the data.
         map.addLayer(
         {
