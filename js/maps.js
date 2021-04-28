@@ -24,7 +24,7 @@ function createMapNoVehicle()
 function createMapVehicle(vId)
 {
            clearDiv("map");
-           fetch( cloudURL + "/api/v1/supply//getVehicleLocation?vehicleId=" + vId
+           fetch( cloudURL + "/api/v1/supply/getVehicleLocation?vehicleId=" + vId
            , {
              method: "GET"
              }).then((response) => {
