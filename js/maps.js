@@ -189,11 +189,11 @@ $('#logoutButton').click(() => {
     }
     else
     {
-
+        createMapNoVehicle();
     }
     loadTableMap();
     console.log("updated!");
- }, 3000);
+ }, 5000);
 
  function clearDiv(divName)
  {
