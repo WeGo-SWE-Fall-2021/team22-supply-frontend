@@ -5,11 +5,13 @@ function adjust_coordinate(loc)
     var array_floats = [parseFloat(array_strings[0]), parseFloat(array_strings[1])];
     return array_floats;
   }
+function
  let cloud = window.location.hostname.split('.')[0]
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
  let location_vehicle = ""
  let coordinate_vehicle = []
-
+function loadMap()
+{
 $(() => {
 
    // Handle user data if there is someone is logged in, else redirect them to login page
@@ -165,7 +167,17 @@ $('#logoutButton').click(() => {
     })
 
   });
- setInterval(function(){
-    location.reload();
+  }
 
- }, 60000);
+function clearDiv(divName)
+{
+    document.getElementById(divName).innerHTML = "";
+}
+
+ function mainFunc()
+{
+    clearDiv("fullTable");
+    clearDiv("map");
+    loadMap();
+    setTimeout(mainFunc, 15000);
+}
