@@ -7,8 +7,8 @@ function adjust_coordinate(loc)
   }
  let cloud = window.location.hostname.split('.')[0]
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
- let location_vehicle = "";
- let coordinate_vehicle = [];
+ var location_vehicle = "";
+ var coordinate_vehicle = [];
  let previousVehicleId = []; // used to stored
  mapboxgl.accessToken = 'pk.eyJ1IjoibmRhbHRvbjEiLCJhIjoiY2tsNWlkMHBwMTlncDJwbGNuNzJ6OGo2ciJ9.QbcnC4OnBjZU6P6JN6m3Pw';
 function createMapNoVehicle()
@@ -179,10 +179,11 @@ $('#logoutButton').click(() => {
     })
 
   }
- setInterval(function(){
+ setInterval(function()
+ {
     clearDiv("fullTable");
     clearDiv("map");
-    if coordinate_vehicle.length != 0
+    if (coordinate_vehicle.length != 0)
     {
         createMapVehicle(coordinate_vehicle);
     }
