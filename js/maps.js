@@ -9,7 +9,8 @@ function adjust_coordinate(loc)
  let cloudURL = `https://${cloud}.team22.sweispring21.tk`
  let location_vehicle = ""
  let coordinate_vehicle = []
-
+function loadTableMap()
+{
 $(() => {
 
    // Handle user data if there is someone is logged in, else redirect them to login page
@@ -131,13 +132,12 @@ $('#logoutButton').click(() => {
             'type': 'FeatureCollection',
             'features': [
             {
-            'type': 'Feature',
-            'geometry': {
-            'type': 'Point',
-            'coordinates': coordinate_vehicle
-            }
-            }
-            ]
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': coordinate_vehicle
+                }
+            }]
           }
         });
 
@@ -165,10 +165,20 @@ $('#logoutButton').click(() => {
     })
     
   });
+  }
  setInterval(function(){
-    location.reload();
+    clearDiv("fullTable");
+    clearDiv("map");
+    loadTableMap();
 
- }, 60000);
+ }, 3000);
+
+ function clearDiv(divName)
+ {
+    document.getElementById(divName).innerHTML = "";
+ }
+
+
 
 
 
